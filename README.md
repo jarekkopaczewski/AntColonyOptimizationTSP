@@ -94,6 +94,6 @@ while (numberOfIterations > 0)
 
 ## License
 
-Distributed under the MIT License.
+Distributed under the Apache-2.0 License.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
