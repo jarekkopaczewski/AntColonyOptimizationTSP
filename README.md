@@ -3,6 +3,7 @@
 * [Built With](#built-with)
 * [Timing](#timing)
 * [Algorithm](#algorithm)
+* [Results](#results) 
 * [License](#license)
 
 # About The Project
@@ -87,13 +88,9 @@ while (numberOfIterations > 0)
 }
 ```
 ## Results 
-### Greedy vs steepest
+### QAS vs CAS
 
-<img src="https://github.com/jarekkopaczewski/Simulated-Annealing-TSP/blob/b99f54ececcbb3fa15f81003e0d51eb24e74a593/greedy_vs_steepest.png" width="700"/>
-
-### Choice of neighbor
-
-<img src="https://github.com/jarekkopaczewski/Simulated-Annealing-TSP/blob/b99f54ececcbb3fa15f81003e0d51eb24e74a593/neighbor.png" width="700"/>
+<img src="https://github.com/jarekkopaczewski/AntColonyOptimizationTSP/blob/225bfb8b2e64cfe1b3678019f6d5a5fa4e1f396e/QAS_vs_CAS.png" width="700"/>
 
 ## License
 
