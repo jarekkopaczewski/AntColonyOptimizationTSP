@@ -58,47 +58,33 @@ cout << "Sredni czas operacji [us] = " << setprecision(3) << float(sum * 1000000
 ## Algorithm
 
 ```cpp
-	while(temperature > absoluteTemperature)
-	{
-		int era = 0;
-		tempMinPermutation = permutation;
+while (numberOfIterations > 0)
+{
+    // dodanie nowych mrówek
+    for (int j = 0; j < numberOfAnts; j++)
+        ants.push_back(new Ant(size, rand() % (size)+0));
 
-		while(era < K)
-		{
-			tempPermutation = tempMinPermutation;
-			if (type == 1)
-				invert(tempPermutation);
-			else if (type == 2)
-				insert(tempPermutation);
-			else
-				swapp(tempPermutation);
-			
-			deltaDistance = getTourLength(tempPermutation);
+    // przejście trasy przez mrówki
+    for (Ant* ant : ants)
+    {
+        for (int i = 0; i < size - 1; i++)
+            ant->addVertex(calcBestVertex(ant->getRoad()));
+        
+        // dodanie krawędzi powrotnej
+        pair<int, int> temp = ant->getEnds();
+        ant->addToCost(matrix[temp.second][temp.first]);
+    }
+    
+    // ustawienie wartości feromonu oraz sprawdzenie czy znaleziono minimum
+    refreshPheromones();
 
-			if ((deltaDistance < tempMin) ? 1 : exp(-(deltaDistance - tempMin) / temperature) > dis(e))
-			{
-				tempMin = deltaDistance;
-				swap(tempMinPermutation, tempPermutation);
-			}
-			era++;
-		}
-
-		if ((tempMin < distance) ? 1 : exp(-(tempMin - distance) / temperature) > dis(e))
-		{
-			distance = tempMin;
-			swap(tempMinPermutation, permutation);
-		}
-
-		temperature = coolingType == 1 ? temperature / (a + b * K) : temperature * coolingRate;
-	}
-	return distance ;
+    ants.clear();
+    tabu.clear();
+    numberOfIterations--;
+    if (numberOfIterations % mCount == 0)
+        cout << "#";
+}
 ```
-## Ini file
-
-/number of tests ; result ; file name/
-
-<img src="https://github.com/jarekkopaczewski/Simulated-Annealing-TSP/blob/39f29c3f45d6113c4c68bb2fcf75b1d27139e434/ini.png" width="330"/>
-
 ## Results 
 ### Greedy vs steepest
 
