@@ -82,7 +82,6 @@ int ACO::findSolution(Graph* graph, Params* params)
     return bestGlobal;
 }
 
-
 void ACO::refreshPheromones()
 {
     auto minAnt = min_element(ants.begin(), ants.end(), [](Ant* a, Ant* b) { return a->getCost() < b->getCost(); });
@@ -101,7 +100,6 @@ void ACO::refreshPheromones()
                 pheromones[i][j] *= evaporation;
 
 }
-
 
 pair<int,int> ACO::calcBestVertex(vector<int> antTabu)
 {   
@@ -157,7 +155,6 @@ bool ACO::sort_by_sec(const pair<float, int> &a, const pair<float, int> &b)
     return (a.first < b.first);
 }
 
-
 void ACO::updateCAS()
 {
     vector<int> road;
@@ -175,7 +172,6 @@ void ACO::updateCAS()
     }
 }
 
-
 void ACO::showPath()
 {
     cout << "Najlepsza droga = ";
@@ -185,7 +181,6 @@ void ACO::showPath()
     }
     cout << bestPath[0] << endl;
 }
-
 
 int ACO::estimateCost()
 {
@@ -217,7 +212,6 @@ int ACO::estimateCost()
     tabu.clear();
     return cnn;
 }
-
 
 int ACO::getNextVertex()
 {   
